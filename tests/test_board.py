@@ -24,5 +24,14 @@ class TestBoard(unittest.TestCase):
         board.make_move(0, 2, 'X')
         self.assertTrue(board.check_win('X'))
 
+    def test_win_col(self):
+        board = Board()
+        # победа в столбце
+        board = Board()
+        board.make_move(0, 0, 'O')
+        board.make_move(1, 0, 'O')
+        board.make_move(2, 0, 'O')
+        self.assertTrue(board.check_win('O'))
+
 if __name__ == '__main__':
     unittest.main()
