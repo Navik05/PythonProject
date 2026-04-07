@@ -25,7 +25,6 @@ class TestBoard(unittest.TestCase):
         self.assertTrue(board.check_win('X'))
 
     def test_win_col(self):
-        board = Board()
         # победа в столбце
         board = Board()
         board.make_move(0, 0, 'O')
@@ -49,7 +48,6 @@ class TestBoard(unittest.TestCase):
         self.assertTrue(board.check_win('O'))
 
     def test_not_win(self):
-        board = Board()
         # победы нет
         board = Board()
         board.make_move(0, 0, 'X')
