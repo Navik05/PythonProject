@@ -13,8 +13,14 @@ class Game:
         self.current_player = self.player2 if self.current_player == self.player1 else self.player1
 
     def make_move(self, row, col):
-        # заглушка - просто делаем ход и переключаем игрока без проверки завершения
+        if self.is_over:
+            return False
         if self.board.make_move(row, col, self.current_player.symbol):
-            self.switch_player()
+            # Проверяем победу текущего игрока
+            if self.board.check_win(self.current_player.symbol):
+                self.is_over = True
+                self.winner = self.current_player
+            else:
+                self.switch_player()
             return True
         return False
