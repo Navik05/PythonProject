@@ -20,4 +20,7 @@ class Board:
         # главная диагональ
         if all(self.cells[i][i] == player for i in range(3)):
             return True
+        # побочная диагональ
+        if all(self.cells[i][2 - i] == player for i in range(3)):
+            return True
         return False
