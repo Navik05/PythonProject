@@ -16,10 +16,13 @@ class Game:
         if self.is_over:
             return False
         if self.board.make_move(row, col, self.current_player.symbol):
-            # Проверяем победу текущего игрока
+            # проверяем победу
             if self.board.check_win(self.current_player.symbol):
                 self.is_over = True
                 self.winner = self.current_player
+            # проверяем ничью
+            elif self.board.is_draw():
+                self.is_over = True
             else:
                 self.switch_player()
             return True
