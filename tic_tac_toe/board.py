@@ -17,4 +17,7 @@ class Board:
         for i in range(3):
             if all(self.cells[j][i] == player for j in range(3)):
                 return True
+        # главная диагональ
+        if all(self.cells[i][i] == player for i in range(3)):
+            return True
         return False
