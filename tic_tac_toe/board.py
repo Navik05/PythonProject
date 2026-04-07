@@ -7,3 +7,9 @@ class Board:
             self.cells[row][col] = player
             return True
         return False
+
+    def check_win(self, player):
+        for i in range(3):
+            if all(self.cells[i][j] == player for j in range(3)):
+                return True
+        return False
