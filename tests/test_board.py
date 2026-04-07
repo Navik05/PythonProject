@@ -33,5 +33,12 @@ class TestBoard(unittest.TestCase):
         board.make_move(2, 0, 'O')
         self.assertTrue(board.check_win('O'))
 
+    def test_win_main_diagonal(self):
+        board = Board()
+        board.make_move(0, 0, 'X')
+        board.make_move(1, 1, 'X')
+        board.make_move(2, 2, 'X')
+        self.assertTrue(board.check_win('X'))
+
 if __name__ == '__main__':
     unittest.main()
