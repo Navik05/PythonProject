@@ -10,5 +10,11 @@ class TestBoard(unittest.TestCase):
             for cell in row:
                 self.assertIsNone(cell)
 
+    def test_make_move(self):
+        board = Board()
+        self.assertTrue(board.make_move(0, 0, 'X'))
+        self.assertEqual(board.cells[0][0], 'X')
+        self.assertFalse(board.make_move(0, 0, 'O'))
+
 if __name__ == '__main__':
     unittest.main()
