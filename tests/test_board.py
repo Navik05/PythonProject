@@ -55,5 +55,14 @@ class TestBoard(unittest.TestCase):
         board.make_move(0, 2, 'X')
         self.assertFalse(board.check_win('X'))
 
+    def test_is_draw(self):
+        board = Board()
+        moves = [('O', 0, 0), ('X', 0, 1), ('O', 0, 2),
+                 ('O', 1, 0), ('X', 1, 1), ('O', 1, 2),
+                 ('X', 2, 0), ('O', 2, 1), ('X', 2, 2)]
+        for p, r, c in moves:
+            board.make_move(r, c, p)
+        self.assertTrue(board.is_draw())
+
 if __name__ == '__main__':
     unittest.main()
