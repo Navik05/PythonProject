@@ -24,3 +24,9 @@ class Board:
         if all(self.cells[i][2 - i] == player for i in range(3)):
             return True
         return False
+
+    def is_full(self):
+        return all(cell is not None for row in self.cells for cell in row)
+
+    def is_draw(self):
+        return self.is_full() and not self.check_win('X') and not self.check_win('O')
