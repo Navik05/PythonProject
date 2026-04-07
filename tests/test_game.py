@@ -36,3 +36,15 @@ class TestGame(unittest.TestCase):
         game.make_move(2, 0)  # X победили
         self.assertTrue(game.is_over)
         self.assertEqual(game.winner, p1)
+
+    def test_game_over_draw(self):
+        p1 = Player('X')
+        p2 = Player('O')
+        game = Game(p1, p2)
+        moves = [(0, 0), (0, 1), (0, 2),
+                 (1, 1), (1, 0), (1, 2),
+                 (2, 1), (2, 0), (2, 2)]
+        for r, c in moves:
+            game.make_move(r, c)
+        self.assertTrue(game.is_over)
+        self.assertIsNone(game.winner)
