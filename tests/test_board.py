@@ -48,5 +48,14 @@ class TestBoard(unittest.TestCase):
         board.make_move(2, 0, 'O')
         self.assertTrue(board.check_win('O'))
 
+    def test_not_win(self):
+        board = Board()
+        # победы нет
+        board = Board()
+        board.make_move(0, 0, 'X')
+        board.make_move(0, 1, 'O')
+        board.make_move(0, 2, 'X')
+        self.assertFalse(board.check_win('X'))
+
 if __name__ == '__main__':
     unittest.main()
