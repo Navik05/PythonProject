@@ -9,3 +9,10 @@ class TestGame(unittest.TestCase):
         game = Game(p1, p2)
         self.assertEqual(game.current_player, p1)
         self.assertFalse(game.is_over)
+
+    def test_switch_player(self):
+        p1 = Player('X')
+        p2 = Player('O')
+        game = Game(p1, p2)
+        game.switch_player()
+        self.assertEqual(game.current_player, p2)
