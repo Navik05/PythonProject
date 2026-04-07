@@ -11,3 +11,10 @@ class Game:
 
     def switch_player(self):
         self.current_player = self.player2 if self.current_player == self.player1 else self.player1
+
+    def make_move(self, row, col):
+        # заглушка - просто делаем ход и переключаем игрока без проверки завершения
+        if self.board.make_move(row, col, self.current_player.symbol):
+            self.switch_player()
+            return True
+        return False
