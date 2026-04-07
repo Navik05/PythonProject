@@ -9,7 +9,12 @@ class Board:
         return False
 
     def check_win(self, player):
+        # строки
         for i in range(3):
             if all(self.cells[i][j] == player for j in range(3)):
+                return True
+        # столбцы
+        for i in range(3):
+            if all(self.cells[j][i] == player for j in range(3)):
                 return True
         return False
